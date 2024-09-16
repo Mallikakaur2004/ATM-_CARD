@@ -1,0 +1,192 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    background: #f8f8ff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Fix for centering the card properly */
+}
+
+.card {
+    margin-top: 4rem;
+    width: 26rem; /* Fix width for ATM card standard dimensions */
+    height: 16rem; /* Fixed height */
+    border-radius: 1rem;
+    perspective: 1000px; /* Increased perspective for more 3D effect */
+    position: relative;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    transition: transform 600ms ease;
+    transform-style: preserve-3d;
+     box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 30px 0px; /* Increased shadow for prominence */
+    }
+    
+
+.card:hover .card_inner {
+    transform: rotateY(180deg);
+}
+
+.card_front,
+.card_back {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    backface-visibility: hidden;
+    color: white;
+}
+
+.card_front {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    background: linear-gradient(45deg, #1a1a1a, #2c2c2c);
+}
+
+.card-number {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.card-holder {
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.exp-date {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.card-info__bottom {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-info__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mastercard {
+    display: flex;
+    align-items: center;
+}
+
+.mastercard .circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.mastercard .circle--red {
+    background: #eb001b;
+}
+
+.mastercard .circle--yellow {
+    margin-left: -1rem;
+    background: rgba(255, 209, 0, 0.6);
+}
+
+.card-chip {
+    width: 3rem;
+    height: 2rem;
+    background: linear-gradient(45deg, #bdbdbd, #f0f0f0);
+    border-radius: 0.2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* BACK SIDE OF THE CARD */
+.card_back {
+    background: #2c2c2c;
+    padding: 1rem;
+    transform: rotateY(180deg);
+}
+
+.card-strip {
+    width: 100%;
+    height: 3rem;
+    background: #000000;
+    margin-bottom: 1rem;
+}
+
+.card-signature-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-signature-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    padding: 0 1rem;
+    background-color: #f0f0f0;
+    height: 2.5rem;
+    border-radius: 0.2rem;
+}
+
+.card-signature-headline {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.card-signature {
+    font-family: 'Allura', cursive;
+    font-size: 1.25rem;
+    color: #021338;
+    font-weight: bold;
+}
+
+.card-ccv {
+    background: linear-gradient(45deg, #1a1a1a, #2c2c2c);
+    height: 1.3rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        height: auto;
+    }
+
+    .card_inner {
+        height: auto;
+    }
+}
